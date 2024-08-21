@@ -10,8 +10,8 @@ async function clickButton() {
   await navigationPromise; // Wait for navigation to complete
 
   // Fill in the input fields [usuario], [clave]
-  await page.type('input[name="userid"]', 'usuario');
-  await page.type('input[id="password_plain"]', 'clave');
+  await page.type('input[name="userid"]', 'usuarioDeEjemplo');
+  await page.type('input[id="password_plain"]', 'claveDeEjemplo');
 
   // Click the "Iniciar sesión" button
   await page.click('button[type="submit"]');

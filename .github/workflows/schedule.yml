@@ -1,0 +1,30 @@
+name: Run Node.js Script Weekly
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+  schedule:
+    - cron: '0 23 * * 3'  # Runs every Wednesday at 20:00hs Argentina time
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Explicitly using Node.js 20
+
+      - name: Install dependencies
+        run: npm install
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'false'  # Ensure Chromium is downloaded
+
+      - name: Install the binary manually
+        run: node node_modules/puppeteer/install.js
+
+      - name: Run Node.js script
+        run: node index.js
