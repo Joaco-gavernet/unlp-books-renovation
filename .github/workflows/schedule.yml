@@ -2,8 +2,10 @@ name: Run Node.js Script Weekly
 
 on:
   workflow_dispatch: # Allows manual triggering of the workflow
-  schedule:
-    - cron: '0 23 * * 3'  # Runs every Wednesday at 20:00hs Argentina time
+  
+  # Uncomment the following 2 lines to activate cron execution: 
+  # schedule:
+  #   - cron: '0 23 * * 3'  # Runs every Wednesday at 20:00hs Argentina time
 
 jobs:
   run-script:
